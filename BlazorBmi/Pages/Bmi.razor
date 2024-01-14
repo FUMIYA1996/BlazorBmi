@@ -1,0 +1,32 @@
+﻿@page "/bmi01"
+
+<h3>クラスを使った表示</h3>
+
+<table class="table">
+    <tr>
+        <td>名前</td>
+        <td>@bmi001.Name01</td>
+    </tr>
+    <tr>
+        <td>身長</td>
+        <td>@bmi001.Height</td>
+    </tr>
+    <tr>
+        <td>体重</td>
+        <td>@bmi001.Weight</td>
+    </tr>
+</table>
+
+<div style="font-size: @fontSize">
+    計算結果は @bmi001.Bmi.ToString("00.0") です。
+</div>
+
+@code {
+    private BmiItem bmi001 = new BmiItem()
+        {
+            Name01 = "マスダトモアキ",
+            Height = 163.0,
+            Weight = 62.0,
+        };
+        private string fontSize = "32px";
+}
