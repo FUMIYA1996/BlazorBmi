@@ -1,0 +1,54 @@
+﻿@page "/bmilist"
+<PageTitle>BmiList</PageTitle>
+<h3>リスト表示</h3>
+<!-- 子コンポーネントを使い、リストで表示する -->
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>名前</th>
+            <th>身長</th>
+            <th>体重</th>
+            <th>BMI</th>
+        </tr>
+    </thead>
+
+@foreach(var it in Items)
+{
+    <BlazorBmi.Components.BmiChild Item="@it" />
+}
+
+</table>
+
+
+@code {
+    private List<BmiItem> Items{ get; set; }
+
+    protected override void OnInitialized()
+    {
+        this.Items = new List<BmiItem>();
+        this.Items.Add(new BmiItem()
+        {
+            Name01 = "masuda", Height = 160, Weight = 60
+        });
+        this.Items.Add(new BmiItem()
+        {
+            Name01 = "tomoaki",
+            Height = 150,
+            Weight = 51
+        });
+        this.Items.Add(new BmiItem()
+        {
+            Name01 = "kato",
+            Height = 170,
+            Weight = 125
+        });
+        this.Items.Add(new BmiItem()
+        {
+            Name01 = "yasuda",
+            Height = 190,
+            Weight = 90
+        });
+
+    }
+
+}
